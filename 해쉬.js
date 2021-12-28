@@ -25,8 +25,10 @@
 
 // 출처 프로그래머스
 
-function solution(participant, completion) {
-  // filter함수 이용, participant배열에서 completion배열에 존재하는 요소를 제거한 배열 생성 후 리턴
+function mySolution(participant, completion) {
+  // // filter함수 이용, participant배열에서 completion배열에 존재하는 요소를 제거한 배열 생성 후 리턴
+  participant.sort();
+  completion.sort();
   const answer = participant.filter((part) => {
     let flag = false;
     completion.map((com, index) => {
@@ -38,8 +40,20 @@ function solution(participant, completion) {
     return !flag;
   });
 
-  console.log(answer);
   return answer;
+
+  // const arr = participant.filter((part) => completion.includes(part));
+  // console.log(arr);
 }
 
-solution(["leo", "kiki", "eden"], ["eden", "kiki"]);
+function otherSolution(participant, completion) {
+  participant.sort();
+  completion.sort();
+  for (let i = 0; i < participant.length; i++) {
+    if (participant[i] !== completion[i]) {
+      return participant[i];
+    }
+  }
+}
+
+otherSolution(["leo", "kiki", "eden"], ["eden", "kiki"]);
