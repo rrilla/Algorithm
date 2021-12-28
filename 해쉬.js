@@ -26,6 +26,7 @@
 // 출처 프로그래머스
 
 function solution(participant, completion) {
+  // filter함수 이용, participant배열에서 completion배열에 존재하는 요소를 제거한 배열 생성 후 리턴
   const answer = participant.filter((part) => {
     let flag = false;
     completion.map((com, index) => {
