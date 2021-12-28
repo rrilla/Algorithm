@@ -42,6 +42,7 @@ function mySolution(participant, completion) {
 
   return answer;
 
+  // includes = arr1의 값(x)이 있으면 false, 아니면 true를 반환
   // const arr = participant.filter((part) => completion.includes(part));
   // console.log(arr);
 }
