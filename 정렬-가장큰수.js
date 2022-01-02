@@ -1,20 +1,39 @@
+// 가장 큰 수
+// 문제 설명
+// 0 또는 양의 정수가 주어졌을 때, 정수를 이어 붙여 만들 수 있는 가장 큰 수를 알아내 주세요.
+
+// 예를 들어, 주어진 정수가 [6, 10, 2]라면 [6102, 6210, 1062, 1026, 2610, 2106]를 만들 수 있고, 이중 가장 큰 수는 6210입니다.
+
+// 0 또는 양의 정수가 담긴 배열 numbers가 매개변수로 주어질 때, 순서를 재배치하여 만들 수 있는 가장 큰 수를 문자열로 바꾸어 return 하도록 solution 함수를 작성해주세요.
+
+// 제한 사항
+// numbers의 길이는 1 이상 100,000 이하입니다.
+// numbers의 원소는 0 이상 1,000 이하입니다.
+// 정답이 너무 클 수 있으니 문자열로 바꾸어 return 합니다.
+// 입출력 예
+// numbers	return
+// [6, 10, 2]	"6210"
+// [3, 30, 34, 5, 9]	"9534330"
+
 function solution(numbers) {
-  var answer = numbers.map((v) => {
-    if (v >= 10) {
-      var arr = new Array();
-      while (v >= 10) {
-        arr.push(v * 0.1);
-        v = v * 0.1;
-        console.log(v);
-      }
-      v = arr.sort().reverse().join();
-    }
-    return v;
-  });
+  var answer = numbers
+    .map((number) => number.toString()) // 배열의 요소를 문자열로 변환.
+    .sort((a, b) => b + a - (a + b)) // 오름차순 정렬
+    .join(""); // 구분자 없이 문자열 반환
 
-  console.log(answer);
-
-  return answer;
+  return answer.replace(/^0+/, "0");
+  // return answer[0] === '0' ? '0' : answer;
 }
 
-solution([6, 100, 2]);
+// arr.sort([compareFunction])
+// compareFunction
+
+// 정렬 순서를 정의하는 함수.
+// 이 값이 생략되면, 배열의 element들은 문자열로 취급되어, 유니코드 값 순서대로 정렬됩니다.
+// 이 함수는 두 개의 배열 element를 파라미터로 입력 받습니다.
+// 이 함수가 a, b 두개의 element를 파라미터로 입력받을 경우,
+// 이 함수가 리턴하는 값이 0보다 작을 경우,  a가 b보다 앞에 오도록 정렬하고,
+// 이 함수가 리턴하는 값이 0보다 클 경우, b가 a보다 앞에 오도록 정렬합니다.
+// 만약 0을 리턴하면, a와 b의 순서를 변경하지 않습니다.
+
+solution([6, 1234, 2, 5, 6, 7, 2, 3]);
