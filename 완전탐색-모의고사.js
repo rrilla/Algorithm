@@ -28,3 +28,32 @@
 // 모든 사람이 2문제씩을 맞췄습니다.
 
 // 출처 프로그래머스
+
+function solution(answers) {
+  let answer = [];
+
+  const p1 = [1, 2, 3, 4, 5];
+  const p2 = [2, 1, 2, 3, 2, 4, 2, 5];
+  const p3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+
+  const p1a = answers.filter((v, i) => v === p1[i % p1.length]).length;
+  const p2a = answers.filter((v, i) => v === p2[i % p2.length]).length;
+  const p3a = answers.filter((v, i) => v === p3[i % p3.length]).length;
+
+  const max = Math.max(p1a, p2a, p3a);
+
+  if (max === p1a) answer.push(1);
+
+  if (max === p2a) answer.push(2);
+
+  if (max === p3a) answer.push(3);
+
+  console.log(p1a);
+  console.log(p2a);
+  console.log(p3a);
+  console.log(answer);
+
+  return answer;
+}
+
+solution([1, 3, 2, 4, 2]);
