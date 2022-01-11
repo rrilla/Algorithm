@@ -36,6 +36,7 @@ function solution(answers) {
   const p2 = [2, 1, 2, 3, 2, 4, 2, 5];
   const p3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
 
+  // filter = 주어진 배열의 값들을 오름차순으로 접근해 callbackfn을 통해 true를 반환하는 요소를 기준으로 신규 배열을 만들어 반환
   const p1a = answers.filter((v, i) => v === p1[i % p1.length]).length;
   const p2a = answers.filter((v, i) => v === p2[i % p2.length]).length;
   const p3a = answers.filter((v, i) => v === p3[i % p3.length]).length;
